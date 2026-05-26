@@ -21,12 +21,7 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller ^
-          --onefile ^
-          --icon=icon.ico ^
-          --add-data "gs;gs" ^
-          --add-data "GSPRINT;GSPRINT" ^
-          main.py
+        pyinstaller --onefile --icon=icon.ico --add-data "gs;gs" --add-data "GSPRINT;GSPRINT" main.py
 
     - name: Upload EXE
       uses: actions/upload-artifact@v4
