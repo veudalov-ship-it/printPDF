@@ -19,7 +19,7 @@ else:
 
 
 win32api.ShellExecute(0, 'open', GSPRINT_PATH,
-                      '-ghostscript "' + GHOSTSCRIPT_PATH + '" -printer "' + currentprinter + '" "' + orientation + '" "' + path,
+                      '-ghostscript "' + GHOSTSCRIPT_PATH + '" -printer "' + currentprinter + '" "' + path,
                       '.', 0)
 sleep(3)
 
