@@ -14,14 +14,18 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.12'
+        python-version: '3.11'
 
     - name: Install requirements
       run: pip install -r requirements.txt
 
-    - name: Build EXE
+    - name: Install build tools
       run: |
-        pyinstaller --onefile --icon=icon.ico --add-data "gs;gs" --add-data "GSPRINT;GSPRINT" main.py
+        python -m pip install --upgrade pip
+        pip install setuptools wheel pyinstaller
+
+    - name: Build EXE
+      run: pyinstaller --onefile --noconsole --icon=icon.ico --add-data "gs;gs" --add-data "GSPRINT;GSPRINT" main.py
 
     - name: Upload EXE
       uses: actions/upload-artifact@v4
